@@ -1,0 +1,53 @@
+server:
+  port: 8090
+  context-path:
+  session:
+    cookie:
+      path: /
+
+spring:
+  #数据源配置
+  datasource:
+    url: jdbc:mysql://localhost:3306/webdisk?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: 123456
+ #   password: xdjr1230-KFCG
+#    password: 123
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+  mvc:
+    view:
+      suffix: .ftl
+      prefix: /templates/
+  freemarker:
+          cache: false
+          request-context-attribute: request
+
+mybatis:
+  #实体类所做包
+  type-aliases-package: com.rjxy.netdisk.pojo
+  #mappers.xml所在位置
+  mapper-locations: classpath:mappers/*.xml
+  configLocation: classpath:/mybatis-config.xml
+
+# LOGGING
+logging:
+    level:
+       com.rjxy.netdisk.mapper: debug
+       com.rjxy.netdisk.controller: debug
+
+
+page:
+  pageSize: 10
+
+path:
+#  WinPathValue: C:/Users/ch/Desktop/
+#  LinuxPathValue: /home/kfcg/
+#  MacPath:/Users/zhy/Downloads/
+  pathValue: /Users/zhy/Downloads/
+pagehelper:
+  helper-dialect: mysql
+
+#  pathValue: C:/Users/ch/Desktop/cg/src/main/resources/static/img/pushimg/
+#  headImgPath: C:/Users/ch/Desktop/cg/src/main/resources/static/img/headImg/
+# companyImgPath: C:/Users/ch/Desktop/cg/src/main/resources/static/img/company/
